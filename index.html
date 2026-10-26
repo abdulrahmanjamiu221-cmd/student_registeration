@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f6f3">
+    <meta name="description" content="Register for student services and follow your application review.">
+    <title>Northstar — Student registration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Northstar home" data-view="register">
+        <span class="brand-mark" aria-hidden="true">N</span>
+        <span>northstar<span class="brand-period">.</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <button class="nav-link is-active" type="button" data-view="register" aria-current="page">Student registration</button>
+        <button class="nav-link" type="button" data-view="admin">Admin review <span id="pending-nav-count" class="nav-count">0</span></button>
+      </nav>
+      <div class="topbar-note"><span class="online-dot"></span> Admissions portal</div>
+    </header>
+
+    <main>
+      <section id="registration-view" class="registration-layout" aria-labelledby="page-title">
+        <aside class="intro-panel">
+          <div class="eyebrow"><span class="eyebrow-line"></span> YOUR NEXT CHAPTER STARTS HERE</div>
+          <h1 id="page-title">Make room<br>for <span>what's next.</span></h1>
+          <p class="intro-copy">Take the first step toward your future. Complete your student profile and our admissions team will be in touch.</p>
+          <div class="journey-card">
+            <div class="journey-heading">
+              <span class="journey-icon" aria-hidden="true">✳</span>
+              <div><strong>Your application journey</strong><span>Three simple steps</span></div>
+            </div>
+            <ol class="journey-steps">
+              <li class="journey-step is-current"><span class="step-number">01</span><span>Share your details</span><span class="step-check">✓</span></li>
+              <li class="journey-step"><span class="step-number">02</span><span>Admissions review</span></li>
+              <li class="journey-step"><span class="step-number">03</span><span>Get your decision</span></li>
+            </ol>
+          </div>
+          <div class="privacy-note"><span aria-hidden="true">⌑</span><span><strong>Your information, respected.</strong><br>Your details are used only to process your registration.</span></div>
+          <div class="decorative-orbit orbit-one" aria-hidden="true"></div>
+          <div class="decorative-orbit orbit-two" aria-hidden="true"></div>
+        </aside>
+
+        <section class="form-panel" aria-labelledby="form-title">
+          <div class="form-heading">
+            <div>
+              <div class="section-kicker">STUDENT APPLICATION <span class="required-key">* Required</span></div>
+              <h2 id="form-title">Let's get to know you.</h2>
+              <p>Fill in your details to create your student profile.</p>
+            </div>
+            <span class="form-step">01 <span>/ 01</span></span>
+          </div>
+
+          <div id="form-feedback" class="feedback" role="status" aria-live="polite" hidden></div>
+          <form id="registration-form">
+            <div class="form-section-label"><span class="section-index">01</span><span>Personal information</span><span class="section-rule"></span></div>
+            <div class="field-grid">
+              <div class="field field-wide">
+                <label for="full-name">Full name <span>*</span></label>
+                <input id="full-name" name="fullName" type="text" autocomplete="name" placeholder="e.g. Jordan Taylor" required minlength="2" maxlength="100">
+              </div>
+              <div class="field">
+                <label for="student-id">Student ID <span>*</span></label>
+                <input id="student-id" name="studentId" type="text" autocomplete="off" placeholder="e.g. NS-2026-0142" required maxlength="30">
+              </div>
+              <div class="field">
+                <label for="date-of-birth">Date of birth <span>*</span></label>
+                <input id="date-of-birth" name="dateOfBirth" type="date" autocomplete="bday" required>
+              </div>
+              <div class="field">
+                <label for="email">Email address <span>*</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required maxlength="254">
+              </div>
+              <div class="field">
+                <label for="phone">Phone number <span>*</span></label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+1 (555) 000-0000" required minlength="7" maxlength="25">
+              </div>
+            </div>
+
+            <div class="form-section-label program-label"><span class="section-index">02</span><span>Study preferences</span><span class="section-rule"></span></div>
+            <div class="field-grid">
+              <div class="field">
+                <label for="program">Program of study <span>*</span></label>
+                <select id="program" name="program" required>
+                  <option value="" disabled selected>Select a program</option>
+                  <option>Business &amp; Management</option>
+                  <option>Computer Science</option>
+                  <option>Education</option>
+                  <option>Engineering</option>
+                  <option>Health Sciences</option>
+                  <option>Humanities</option>
+                  <option>Natural Sciences</option>
+                  <option>Social Sciences</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="study-year">Year of study <span>*</span></label>
+                <select id="study-year" name="studyYear" required>
+                  <option value="" disabled selected>Select a year</option>
+                  <option>Year 1</option>
+                  <option>Year 2</option>
+                  <option>Year 3</option>
+                  <option>Year 4</option>
+                  <option>Postgraduate</option>
+                </select>
+              </div>
+              <div class="field field-wide">
+                <label for="address">Home address <span>*</span></label>
+                <input id="address" name="address" type="text" autocomplete="street-address" placeholder="Street, city, postal code" required minlength="5" maxlength="200">
+              </div>
+            </div>
+
+            <label class="consent-control">
+              <input type="checkbox" name="consent" required>
+              <span class="custom-checkbox" aria-hidden="true"></span>
+              <span>I confirm that the information above is accurate and agree to be contacted about my registration. <span class="asterisk">*</span></span>
+            </label>
+            <button class="submit-button" type="submit"><span>Submit registration</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+            <p class="form-footnote"><span aria-hidden="true">◷</span> You'll receive a decision after the admissions team reviews your application.</p>
+          </form>
+        </section>
+      </section>
+
+      <section id="admin-view" class="admin-layout" aria-labelledby="admin-title" hidden>
+        <div class="admin-heading">
+          <div>
+            <div class="eyebrow admin-eyebrow"><span class="eyebrow-line"></span> ADMISSIONS OFFICE</div>
+            <h1 id="admin-title">Registration <span>review.</span></h1>
+            <p>Review student applications and update their registration status.</p>
+          </div>
+          <button type="button" class="export-button" id="export-button"><span aria-hidden="true">↓</span> Export applications</button>
+        </div>
+        <div class="stats-grid" aria-label="Registration summary">
+          <article class="stat-card"><span class="stat-label">Total applications</span><span id="total-count" class="stat-number">0</span><span class="stat-caption">All registrations</span><span class="stat-icon stat-icon-total" aria-hidden="true">▤</span></article>
+          <article class="stat-card"><span class="stat-label">Awaiting review</span><span id="pending-count" class="stat-number">0</span><span class="stat-caption">Need your attention</span><span class="stat-icon stat-icon-pending" aria-hidden="true">◷</span></article>
+          <article class="stat-card"><span class="stat-label">Approved</span><span id="approved-count" class="stat-number">0</span><span class="stat-caption">Ready to get started</span><span class="stat-icon stat-icon-approved" aria-hidden="true">✓</span></article>
+          <article class="stat-card"><span class="stat-label">Declined</span><span id="declined-count" class="stat-number">0</span><span class="stat-caption">Registration declined</span><span class="stat-icon stat-icon-declined" aria-hidden="true">—</span></article>
+        </div>
+        <div id="admin-feedback" class="feedback" role="status" aria-live="polite" hidden></div>
+        <section class="applications-panel" aria-labelledby="applications-heading">
+          <div class="applications-toolbar">
+            <div>
+              <h2 id="applications-heading">Applications</h2>
+              <p id="results-caption">All student registrations</p>
+            </div>
+            <div class="application-controls">
+              <label class="search-box"><span aria-hidden="true">⌕</span><input id="application-search" type="search" placeholder="Search students..." aria-label="Search by name, student ID, or email"></label>
+              <label class="filter-wrap"><span class="sr-only">Filter applications by status</span><select id="status-filter"><option value="all">All statuses</option><option value="pending">Pending</option><option value="approved">Approved</option><option value="declined">Declined</option></select></label>
+            </div>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th scope="col">STUDENT</th><th scope="col">PROGRAM</th><th scope="col">YEAR</th><th scope="col">DATE SUBMITTED</th><th scope="col">STATUS</th><th scope="col">ACTIONS</th></tr></thead>
+              <tbody id="applications-body"></tbody>
+            </table>
+            <div id="empty-state" class="empty-state" hidden><span class="empty-icon" aria-hidden="true">◎</span><h3>No applications found</h3><p>New student registrations will appear here for review.</p></div>
+          </div>
+        </section>
+        <p class="admin-disclaimer">Student details are stored in the server-side SQLite database.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer"><span>© 2026 Northstar University</span><span>Made for the next generation <span class="footer-star" aria-hidden="true">✳</span></span></footer>
+    <dialog id="application-dialog" aria-labelledby="dialog-title">
+      <div class="dialog-top"><div><span class="section-kicker">APPLICATION DETAILS</span><h2 id="dialog-title">Student profile</h2></div><button class="dialog-close" type="button" aria-label="Close application details">×</button></div>
+      <dl id="dialog-details" class="detail-list"></dl>
+      <div id="dialog-actions" class="dialog-actions"></div>
+    </dialog>
+    <dialog id="admin-login-dialog" aria-labelledby="admin-login-title">
+      <form id="admin-login-form">
+        <div class="dialog-top">
+          <div><span class="section-kicker">ADMISSIONS OFFICE</span><h2 id="admin-login-title">Admin sign in</h2></div>
+        </div>
+        <p class="login-description">Enter the admin password configured on the server to review registrations.</p>
+        <div class="field">
+          <label for="admin-password">Admin password</label>
+          <input id="admin-password" type="password" autocomplete="current-password" required>
+        </div>
+        <div class="dialog-actions login-actions">
+          <button class="action-button" id="cancel-admin-login" type="button">Cancel</button>
+          <button class="action-button action-approve" type="submit">Continue</button>
+        </div>
+      </form>
+    </dialog>
+  </body>
+</html>
